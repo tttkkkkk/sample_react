@@ -13,6 +13,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		553B4D5AA5D8B97D1E9F702A /* libPods-sample_react-sample_reactTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D97332E4A8C3AEB09BA10D /* libPods-sample_react-sample_reactTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CEB0A0002610A48C00E87989 /* broadchurch.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CEB09FFF2610A48C00E87989 /* broadchurch.mp4 */; };
+		CEB0A0352610AC6E00E87989 /* se.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEB0A0342610AC6E00E87989 /* se.mp3 */; };
 		D35AE13BAF5554A7AADBB720 /* libPods-sample_react.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B780436C6A46238FE7FAB1 /* libPods-sample_react.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		9DDDFAAD9BCC06B51680CD6C /* Pods-sample_react-sample_reactTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sample_react-sample_reactTests.release.xcconfig"; path = "Target Support Files/Pods-sample_react-sample_reactTests/Pods-sample_react-sample_reactTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1C82C609F52E66A3BD8E9E8 /* Pods-sample_react.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sample_react.release.xcconfig"; path = "Target Support Files/Pods-sample_react/Pods-sample_react.release.xcconfig"; sourceTree = "<group>"; };
 		C9D97332E4A8C3AEB09BA10D /* libPods-sample_react-sample_reactTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sample_react-sample_reactTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB09FFF2610A48C00E87989 /* broadchurch.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = broadchurch.mp4; path = ../broadchurch.mp4; sourceTree = "<group>"; };
+		CEB0A0342610AC6E00E87989 /* se.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = se.mp3; path = ../se.mp3; sourceTree = "<group>"; };
 		E3381363722101EC50C328DC /* Pods-sample_react.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sample_react.debug.xcconfig"; path = "Target Support Files/Pods-sample_react/Pods-sample_react.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -114,7 +118,6 @@
 				8FD5F32FD657F70FE0F585CC /* Pods-sample_react-sample_reactTests.debug.xcconfig */,
 				9DDDFAAD9BCC06B51680CD6C /* Pods-sample_react-sample_reactTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,6 +131,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CEB0A0342610AC6E00E87989 /* se.mp3 */,
+				CEB09FFF2610A48C00E87989 /* broadchurch.mp4 */,
 				13B07FAE1A68108700A75B9A /* sample_react */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* sample_reactTests */,
@@ -243,8 +248,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB0A0352610AC6E00E87989 /* se.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CEB0A0002610A48C00E87989 /* broadchurch.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
