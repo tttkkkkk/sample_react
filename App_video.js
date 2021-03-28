@@ -18,7 +18,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Video from 'react-native-video';
-import Sound from 'react-native-sound';
 
 import {
   Colors,
@@ -29,9 +28,6 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 
-
-
-
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -39,45 +35,13 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  // var Sound = require('react-native-sound')
-  const PlayLocalSoundFile = () => {
-    Sound.setCategory('Playback');
-  
-    var mySound = new Sound('se.mp3',  Sound.MAIN_BUNDLE ,(error)=>{
-        if(error){
-          console.log('Error loading sound: ' + error);
-          console.log(error);
-          return;
-        }else{
-
-          console.log('volume: ' + mySound.getVolume());
-          mySound.setVolume(0.9);
-          console.log('volume: ' + mySound.getVolume());
-
-          mySound.play((success)=>{
-          if(success){
-            console.log('Sound playing')
-          }else{
-            console.log('Issue playing file');
-          }
-          })
-        }
-      });
-  
-    // mySound.setVolume(0.9);
-    mySound.release();
-  }
-
   const [paused, setPaused] = useState(false);
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <Text>{"テスト\n"}</Text>
+        <Text>{"Videoテスト\n"}</Text>
         <Text>{"■やりたいこと \n 実機が消音（ボリューム 0 やミュート）の状態でも「音」を出したい\n （イメージ：カメラのシャッター音 or Paypayの決済音\n"}</Text>
-        <Text>{"■やったこと[１] \n 【react-native-video】ignoreSilentSwitch をignoreにすると、音が出る？"}</Text>
-
-        {/* Videoテスト */}
+        <Text>{"■やったこと \n ignoreSilentSwitch をignoreにすると、音が出る？　\n → 出ない。。"}</Text>
         <Video
           source={require('./broadchurch.mp4')}
           resizeMode={"cover"}
@@ -86,17 +50,11 @@ const App = () => {
           ignoreSilentSwitch={'ignore'}
           repeat={true}
           resizeMode={'contain'}
-          style={{ margin: 'auto', width: '100%', height: '30%' }}
+          style={{ margin: 'auto', width: '100%', height: '70%' }}
         />
         <View style={styles.sectionContainer}>
           <TouchableOpacity style={styles.btn} onPress={() => setPaused(true)}><Text>Stop</Text></TouchableOpacity>
           <TouchableOpacity style={styles.btn} onPress={() => setPaused(false)}><Text>Start</Text></TouchableOpacity>
-        </View>
-
-        {/* Soundテスト */}
-        <Text>{"\n\n■やったこと[２] \n 【react-native-sound】 setVolume(1)？ \n"}</Text>
-        <View style={styles.sectionContainer}>
-          <TouchableOpacity style={styles.btnSound} onPress={()=>PlayLocalSoundFile()}><Text>Start(sound)</Text></TouchableOpacity>
         </View>
     </SafeAreaView>
   );
@@ -106,7 +64,6 @@ const styles = StyleSheet.create({
   sectionContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginBottom: 20,
   },
   btn: {
     height: 36,
@@ -115,15 +72,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#cccccc',
     borderRadius: 5,
-  },
-  btnSound: {
-    height: 36,
-    width: 136,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#CCA955',
-    borderRadius: 5,
   }
+
 
 });
 
