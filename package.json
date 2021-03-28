@@ -1,23 +1,36 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "sample_react",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint --ext .js,.ts,.tsx . --max-warnings 0",
+    "tsc": "tsc",
+    "ci": "yarn lint && yarn tsc",
+    "pod": "cd ios && pod install && cd ..",
+    "buid_android_rm": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf ./android/app/src/main/res/drawable-*  &&  rm -rf ./android/app/src/main/res/raw",
+    "pod_rm": "rm -rf ios/Pods && rm -rf ios/build && cd ios && rm Podfile.lock &&  pod install && cd ..",
+    "yarn_rm": "rm -rf node_modules && rm yarn.lock && yarn install"
   },
   "dependencies": {
-    "expo": "~40.0.0",
-    "expo-status-bar": "~1.0.3",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
-    "react-native-video": "^5.1.1",
-    "react-native-web": "~0.13.12"
+    "react": "17.0.1",
+    "react-native": "0.64.0",
+    "react-native-video": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.13.13",
+    "@babel/runtime": "^7.13.10",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.23.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.65.2",
+    "react-test-renderer": "17.0.1"
   },
-  "private": true
+  "jest": {
+    "preset": "react-native"
+  }
 }
