@@ -6,8 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import type {Node} from 'react';
+import React, { useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -16,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import Video from 'react-native-video';
 
@@ -27,104 +27,54 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
 
-const App: () => Node = () => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-
-  const param = {
-    rate: 1,
-    volume: 1,
-    muted: false,
-    resizeMode: 'contain',
-    duration: 0.0,
-    currentTime: 0.0,
-    paused: true,
-  };
-
+  const [paused, setPaused] = useState(false);
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-
-          <Video
-            ref={(ref: Video) => { this.video = ref }}
-            source={require('./broadchurch.mp4')}
-            style={styles.fullScreen}
-            rate={param.rate}
-            paused={param.paused}
-            volume={param.volume}
-            repeat={true}
-            muted={param.muted}
-            resizeMode={param.resizeMode}
-            onLoad={this.onLoad}
-            onProgress={this.onProgress}
-            onEnd={this.onEnd}
-            onAudioBecomingNoisy={this.onAudioBecomingNoisy}
-            onAudioFocusChanged={this.onAudioFocusChanged}
-            repeat={false}
-          />
-
-          <LearnMoreLinks />
+        <Text>{"Videoテスト\n"}</Text>
+        <Text>{"■やりたいこと \n 実機が消音（ボリューム 0 やミュート）の状態でも「音」を出したい\n （イメージ：カメラのシャッター音 or Paypayの決済音\n"}</Text>
+        <Text>{"■やったこと \n ignoreSilentSwitch をignoreにすると、音が出る？　\n → 出ない。。"}</Text>
+        <Video
+          source={require('./broadchurch.mp4')}
+          resizeMode={"cover"}
+          paused={paused}
+          volume={1}
+          ignoreSilentSwitch={'ignore'}
+          repeat={true}
+          resizeMode={'contain'}
+          style={{ margin: 'auto', width: '100%', height: '70%' }}
+        />
+        <View style={styles.sectionContainer}>
+          <TouchableOpacity style={styles.btn} onPress={() => setPaused(true)}><Text>Stop</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => setPaused(false)}><Text>Start</Text></TouchableOpacity>
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+  btn: {
+    height: 36,
+    width: 136,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#cccccc',
+    borderRadius: 5,
+  }
+
+
 });
 
 export default App;
