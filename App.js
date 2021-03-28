@@ -41,7 +41,7 @@ const App = () => {
 
   // var Sound = require('react-native-sound')
   const PlayLocalSoundFile = () => {
-    Sound.setCategory('Playback');
+    Sound.setCategory('.playback');
   
     var mySound = new Sound('se.mp3',  Sound.MAIN_BUNDLE ,(error)=>{
         if(error){
@@ -75,7 +75,7 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <Text>{"テスト\n"}</Text>
         <Text>{"■やりたいこと \n 実機が消音（ボリューム 0 やミュート）の状態でも「音」を出したい\n （イメージ：カメラのシャッター音 or Paypayの決済音\n"}</Text>
-        <Text>{"■やったこと[１] \n 【react-native-video】ignoreSilentSwitch をignoreにすると、音が出る？"}</Text>
+        <Text>{"■試したこと[１] \n 【react-native-video】ignoreSilentSwitch をignore"}</Text>
 
         {/* Videoテスト */}
         <Video
@@ -94,7 +94,7 @@ const App = () => {
         </View>
 
         {/* Soundテスト */}
-        <Text>{"\n\n■やったこと[２] \n 【react-native-sound】 setVolume(1)？ \n"}</Text>
+        <Text>{"\n\n■試したこと[２] \n 【react-native-sound】 setVolume(0.9) \n"}</Text>
         <View style={styles.sectionContainer}>
           <TouchableOpacity style={styles.btnSound} onPress={()=>PlayLocalSoundFile()}><Text>Start(sound)</Text></TouchableOpacity>
         </View>
