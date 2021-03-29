@@ -41,8 +41,21 @@ const App = () => {
 
   // var Sound = require('react-native-sound')
   const PlayLocalSoundFile = () => {
-    Sound.setCategory('.playback');
-  
+
+    //1  音ならず
+    // Sound.setCategory('Playback');
+    // Sound.enableInSilenceMode(true);
+
+    //2  音ならず
+    // Sound.setActive(true)
+    // Sound.setCategory('Playback', true);
+    // Sound.enableInSilenceMode(true);
+    
+    //3  音ならず
+    Sound.setActive(true)
+    Sound.setCategory('Playback');
+    Sound.enableInSilenceMode(true);
+
     var mySound = new Sound('se.mp3',  Sound.MAIN_BUNDLE ,(error)=>{
         if(error){
           console.log('Error loading sound: ' + error);
